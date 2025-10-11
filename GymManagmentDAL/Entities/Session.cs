@@ -9,8 +9,8 @@ namespace GymManagmentDAL.Entities
     internal class Session : BaseEntity
     {
         public string Discription { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public int Capacity { get; set; }
 
         #region Relationships
