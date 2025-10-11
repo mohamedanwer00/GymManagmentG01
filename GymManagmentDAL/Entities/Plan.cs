@@ -14,5 +14,11 @@ namespace GymManagmentDAL.Entities
         public string DurationDays { get; set; }
         public bool IsActive { get; set; }
 
+        #region Relationships
+        #region Plan has Membership
+        public ICollection<Membership> Memberships { get; set; }
+        #endregion
+        #endregion
+
     }
 }

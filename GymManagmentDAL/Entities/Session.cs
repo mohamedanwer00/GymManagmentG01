@@ -13,5 +13,25 @@ namespace GymManagmentDAL.Entities
         public DateTime EndTime { get; set; }
         public int Capacity { get; set; }
 
+        #region Relationships
+        #region Session belongs to Category
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+
+        #endregion
+
+        #region Session-Trainer
+        public int TrainerId { get; set; }
+        public Trainer Trainer { get; set; }
+        #endregion
+
+        #region Session has many Members
+        public ICollection<MemberSession> MemberSessions { get; set; }
+        #endregion
+
+
+        #endregion
+
+
     }
 }

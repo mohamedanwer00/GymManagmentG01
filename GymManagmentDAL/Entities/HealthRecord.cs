@@ -13,5 +13,8 @@ namespace GymManagmentDAL.Entities
         public string BloodType { get; set; }
         public string? Note { get; set; }
         //LastUpdate == UpdatedAt
+        
+
+
     }
 }

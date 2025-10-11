@@ -12,5 +12,11 @@ namespace GymManagmentDAL.Entities
         //HireDate==CeartedAt
         public Specialties Specialties { get; set; }
 
+        #region Relationships
+        #region Trainer-Sessions
+        public ICollection<Session> Sessions { get; set; }
+        #endregion
+        #endregion
+
     }
 }
