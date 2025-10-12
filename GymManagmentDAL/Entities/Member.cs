@@ -14,7 +14,7 @@ namespace GymManagmentDAL.Entities
         #region Relationships
 
         #region Member has Health Record
-        public HealthRecord HealthRecord { get; set; }
+        public HealthRecord HealthRecord { get; set; } = null!;
 
         #endregion
 
@@ -26,7 +26,7 @@ namespace GymManagmentDAL.Entities
 
         #region Member has many Sessions
 
-        public ICollection<Session> Sessions { get; set; }
+        public ICollection<Session> Sessions { get; set; } = [];
          
         #endregion
         #endregion
