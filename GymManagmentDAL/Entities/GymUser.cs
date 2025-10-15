@@ -16,12 +16,12 @@ namespace GymManagmentDAL.Entities
         public DateOnly DateOfBirth { get; set; }
         public Gender Gender { get; set; }
 
-        public Adress Address { get; set; }
+        public Address Address { get; set; }
 
     }
 
     [Owned]
-    public class Adress 
+    public class Address 
     { 
         public int BuildingNumber { get; set; }
         public string Street { get; set; }

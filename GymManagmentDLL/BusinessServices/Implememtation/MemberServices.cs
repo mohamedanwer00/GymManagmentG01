@@ -18,6 +18,43 @@ namespace GymManagmentBLL.BusinessServices.Implememtation
         {
             _memberRepository = memberRepository;
         }
+
+        public bool CreateMember(CreateMemberViewModel createMember)
+        {
+            var EmailExist = _memberRepository.GetAll(X => X.Email == createMember.Email).Any();
+            var PhoneExist = _memberRepository.GetAll(X => X.Phone == createMember.Phone).Any();
+
+            if (EmailExist||PhoneExist )
+                return false;
+
+            var member = new Member
+            {
+                Name = createMember.Name,
+                Email = createMember.Email,
+                Phone = createMember.Phone,
+                Gender = createMember.Gender,
+                DateOfBirth = createMember.DateOfBirth,
+                Address = new Address
+                {
+                    BuildingNumber = createMember.BuildingNumber,
+                    City = createMember.City,
+                    Street = createMember.Street,
+                },
+
+
+                HealthRecord = new HealthRecord
+                {
+                    Height=createMember.HealthRecord.Height,
+                    Weight=createMember.HealthRecord.Weight,
+                    BloodType=createMember.HealthRecord.BloodTybe,
+                    Note = createMember.HealthRecord.Note,
+
+                }
+
+            };
+            return _memberRepository.Add(member)>0;
+        }
+
         public IEnumerable<MemberViewModel> GetAllMembers()
         {
             var members = _memberRepository.GetAll();
