@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GymManagmentDAL.Entities
 {
-    internal class Session : BaseEntity
+    public class Session : BaseEntity
     {
         public string Discription { get; set; }
         public DateTime StartDate { get; set; }
@@ -26,7 +26,7 @@ namespace GymManagmentDAL.Entities
         #endregion
 
         #region Session has many Members
-        public ICollection<MemberSession> MemberSessions { get; set; }
+        public ICollection<MemberSession> MemberSessions { get; set; } = [];
         #endregion
 
 

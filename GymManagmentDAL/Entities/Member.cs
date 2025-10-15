@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GymManagmentDAL.Entities
 {
-    internal class Member: GymUser
+    public class Member: GymUser
     {
         //JoinDate==CreatedAt
         public string? Photo { get; set; }
@@ -26,7 +26,7 @@ namespace GymManagmentDAL.Entities
 
         #region Member has many Sessions
 
-        public ICollection<Session> Sessions { get; set; } = [];
+        public ICollection<MemberSession> MemberSessions { get; set; } = [];
          
         #endregion
         #endregion
