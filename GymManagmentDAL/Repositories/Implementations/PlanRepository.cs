@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GymManagmentDAL.Repositories.Implementations
 {
-    internal class PlanRepository : IPlanRepository
+    public class PlanRepository : IPlanRepository
     {
         private readonly GymDbContext _dbContext;
 
@@ -19,11 +19,11 @@ namespace GymManagmentDAL.Repositories.Implementations
             _dbContext = dbContext;
         }
 
-        public IEnumerable<Plan> GetAllPlans()=> _dbContext.Plans.ToList();
+        public IEnumerable<PlanReposatory> GetAllPlans()=> _dbContext.Plans.ToList();
 
-        public Plan? GetPlanById(int id)=> _dbContext.Plans.Find(id);
+        public PlanReposatory? GetPlanById(int id)=> _dbContext.Plans.Find(id);
 
-        public int Update(Plan plan)
+        public int Update(PlanReposatory plan)
         {
             _dbContext.Plans.Update(plan);
             return _dbContext.SaveChanges();
