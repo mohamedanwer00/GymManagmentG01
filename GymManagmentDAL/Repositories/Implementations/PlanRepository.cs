@@ -23,10 +23,9 @@ namespace GymManagmentDAL.Repositories.Implementations
 
         public PlanReposatory? GetPlanById(int id)=> _dbContext.Plans.Find(id);
 
-        public int Update(PlanReposatory plan)
+        public void Update(PlanReposatory plan)
         {
             _dbContext.Plans.Update(plan);
-            return _dbContext.SaveChanges();
         }
     }
 }

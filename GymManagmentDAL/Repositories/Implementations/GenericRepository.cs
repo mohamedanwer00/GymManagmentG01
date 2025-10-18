@@ -1,6 +1,7 @@
 ﻿using GymManagmentDAL.Data.Context;
 using GymManagmentDAL.Entities;
 using GymManagmentDAL.Repositories.Interfaces;
+using GymManagmentDAL.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,21 +14,26 @@ namespace GymManagmentDAL.Repositories.Implementations
     internal class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity, new()
     {
         private readonly GymDbContext _dbContext;
+        private GymDbContixt dbContixt;
 
         public GenericRepository(GymDbContext dbContext)
         {
             _dbContext = dbContext;
         }
-        public int Add(TEntity entity)
+
+        public GenericRepository(GymDbContixt dbContixt)
         {
-            _dbContext.Set<TEntity>().Add(entity);
-            return _dbContext.SaveChanges();
+            this.dbContixt = dbContixt;
         }
 
-        public int Delete(TEntity entity)
+        public void Add(TEntity entity)
+        {
+            _dbContext.Set<TEntity>().Add(entity);
+        }
+
+        public void Delete(TEntity entity)
         {
             _dbContext.Set<TEntity>().Remove(entity);
-            return _dbContext.SaveChanges();
         }
 
         public IEnumerable<TEntity> GetAll(Func<TEntity, bool>? condition = null)
@@ -43,10 +49,9 @@ namespace GymManagmentDAL.Repositories.Implementations
         public TEntity? GetById(int id)=> _dbContext.Set<TEntity>().Find(id);
 
 
-        public int Update(TEntity entity)
+        public void Update(TEntity entity)
         {
             _dbContext.Set<TEntity>().Update(entity);
-            return _dbContext.SaveChanges();
         }
     }
 }
