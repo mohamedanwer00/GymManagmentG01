@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace GymManagmentDAL.Data.Configurations
 {
-    internal class PlanConfiguration : IEntityTypeConfiguration<PlanReposatory>
+    internal class PlanConfiguration : IEntityTypeConfiguration<Plan>
     {
-        public void Configure(EntityTypeBuilder<PlanReposatory> builder)
+        public void Configure(EntityTypeBuilder<Plan> builder)
         {
             builder.Property(p => p.Name)
                 .HasColumnType("nvarchar(50)");

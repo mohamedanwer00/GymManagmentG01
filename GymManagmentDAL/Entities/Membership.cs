@@ -12,7 +12,7 @@ namespace GymManagmentDAL.Entities
 
         public int MemberId { get; set; }
         public int PlanId { get; set; }
-        public PlanReposatory Plan { get; set; }
+        public Plan Plan { get; set; }
         public DateTime EndDate { get; set; }
 
         //Derived Property

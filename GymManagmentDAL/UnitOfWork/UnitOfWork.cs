@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GymManagmentDAL.UnitOfWork
 {
-    internal class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly Dictionary<Type, object> _repositories = new();
         private readonly GymDbContixt _dbContixt;
