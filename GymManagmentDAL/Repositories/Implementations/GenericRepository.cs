@@ -14,17 +14,17 @@ namespace GymManagmentDAL.Repositories.Implementations
     internal class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity, new()
     {
         private readonly GymDbContext _dbContext;
-        private GymDbContixt dbContixt;
+        private GymDbContext dbContixt;
 
         public GenericRepository(GymDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public GenericRepository(GymDbContixt dbContixt)
-        {
-            this.dbContixt = dbContixt;
-        }
+        //public GenericRepository(GymDbContext dbContixt)
+        //{
+        //    //this.dbContext = dbContixt;
+        //}
 
         public void Add(TEntity entity)
         {

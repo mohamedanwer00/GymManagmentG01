@@ -1,4 +1,5 @@
-﻿using GymManagmentDAL.Entities;
+﻿using GymManagmentDAL.Data.Context;
+using GymManagmentDAL.Entities;
 using GymManagmentDAL.Repositories.Implementations;
 using GymManagmentDAL.Repositories.Interfaces;
 using System;
@@ -12,12 +13,12 @@ namespace GymManagmentDAL.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly Dictionary<Type, object> _repositories = new();
-        private readonly GymDbContixt _dbContixt;
+        private readonly GymDbContext _dbContext;
 
 
-        public UnitOfWork(GymDbContixt dbContixt)
+        public UnitOfWork(GymDbContext dbContixt)
         {
-            _dbContixt = dbContixt;
+            _dbContext = dbContixt;
         }
 
 
@@ -29,7 +30,7 @@ namespace GymManagmentDAL.UnitOfWork
             if (_repositories.TryGetValue(entityType,out var repository))
                 return (IGenericRepository<TEntity>)repository;
 
-            var newRepository = new GenericRepository<TEntity>(_dbContixt);
+            var newRepository = new GenericRepository<TEntity>(_dbContext);
 
             _repositories[entityType] = newRepository;
 
@@ -41,7 +42,7 @@ namespace GymManagmentDAL.UnitOfWork
 
         public int SaveChanges()
         {
-            return _dbContixt.SaveChanges();
+            return _dbContext.SaveChanges();
         }
     }
 }
