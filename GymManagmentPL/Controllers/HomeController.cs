@@ -1,6 +1,6 @@
-using System.Diagnostics;
 using GymManagmentPL.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace GymManagmentPL.Controllers
 {

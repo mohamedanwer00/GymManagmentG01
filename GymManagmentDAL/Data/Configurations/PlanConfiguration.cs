@@ -1,11 +1,6 @@
 ﻿using GymManagmentDAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GymManagmentDAL.Data.Configurations
 {
@@ -19,7 +14,7 @@ namespace GymManagmentDAL.Data.Configurations
                 .HasColumnType("nvarchar(200)");
             builder.Property(p => p.Price)
                 .HasPrecision(10, 2);
-            builder.ToTable(Tb=> Tb.HasCheckConstraint("DurationDaysConstraint",
+            builder.ToTable(Tb => Tb.HasCheckConstraint("DurationDaysConstraint",
                 "DurationDays between 1 and 365 "));
         }
     }

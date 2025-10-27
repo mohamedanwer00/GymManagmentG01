@@ -1,15 +1,4 @@
-﻿using GymManagmentBLL.BusinessServices.Interfaces;
-using GymManagmentBLL.BusinessServices.View_Models;
-using GymManagmentDAL.Entities;
-using GymManagmentDAL.Repositories.Interfaces;
-using GymManagmentDAL.UnitOfWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GymManagmentBLL.BusinessServices.Implememtation
+﻿namespace GymManagmentBLL.BusinessServices.Implememtation
 {
     internal class MemberServices : IMemberServices
     {

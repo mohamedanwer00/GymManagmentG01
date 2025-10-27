@@ -1,17 +1,11 @@
 ﻿using GymManagmentDAL.Entities.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GymManagmentBLL.BusinessServices.View_Models
 {
     internal class CreateMemberViewModel
     {
-        [Required(ErrorMessage ="Name is Required")]
-        [StringLength(50,MinimumLength =2,ErrorMessage ="Name Must be between 2 And 50 .")]
+        [Required(ErrorMessage = "Name is Required")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Name Must be between 2 And 50 .")]
         [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Name can only contain letters and spaces.")]
         public string Name { get; set; } = null!;
 
@@ -19,7 +13,7 @@ namespace GymManagmentBLL.BusinessServices.View_Models
 
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         [DataType(DataType.EmailAddress)]//hint for the view
-        [StringLength(100,MinimumLength =5, ErrorMessage = "Email must be between 5 And 100.")]
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "Email must be between 5 And 100.")]
         public string Email { get; set; } = null!;
 
         [Required(ErrorMessage = "Phone is Required")]

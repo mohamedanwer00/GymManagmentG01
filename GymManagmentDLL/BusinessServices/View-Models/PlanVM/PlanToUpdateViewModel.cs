@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GymManagmentBLL.BusinessServices.View_Models.PlanVM
+﻿namespace GymManagmentBLL.BusinessServices.View_Models
 {
     internal class PlanToUpdateViewModel
     {
         public string Name { get; set; } = null!;
 
         [Required(ErrorMessage = "Description is required.")]
-        [StringLength(50,MinimumLength =5, ErrorMessage = "Description must be between 5 and 50 characters.")]
+        [StringLength(50, MinimumLength = 5, ErrorMessage = "Description must be between 5 and 50 characters.")]
         public string Description { get; set; } = null!;
 
         [Required(ErrorMessage = "Duration in days is required.")]

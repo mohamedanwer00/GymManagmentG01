@@ -1,12 +1,6 @@
 ﻿using GymManagmentDAL.Entities.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GymManagmentBLL.BusinessServices.View_Models.TrainerVM
+namespace GymManagmentBLL.BusinessServices.View_Models
 {
     public class TrainerToUpdateViewModel
     {

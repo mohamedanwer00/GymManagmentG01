@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GymManagmentBLL.BusinessServices.View_Models
+﻿namespace GymManagmentBLL.BusinessServices.View_Models
 {
     internal class HealthRecordViewModel
     {
@@ -18,7 +11,7 @@ namespace GymManagmentBLL.BusinessServices.View_Models
 
         [Required(ErrorMessage = "blood is required.")]
         [StringLength(3, ErrorMessage = "Blood Conditions cannot exceed 3 characters.")]
-        public string BloodTybe { get; set; }=null!;
+        public string BloodTybe { get; set; } = null!;
         public string? Note { get; set; }
     }
 }

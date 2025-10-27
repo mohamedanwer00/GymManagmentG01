@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GymManagmentDAL.Entities
+﻿namespace GymManagmentDAL.Entities
 {
-    public class Member: GymUser
+    public class Member : GymUser
     {
         //JoinDate==CreatedAt
         public string? Photo { get; set; }
@@ -27,7 +21,7 @@ namespace GymManagmentDAL.Entities
         #region Member has many Sessions
 
         public ICollection<MemberSession> MemberSessions { get; set; } = [];
-         
+
         #endregion
         #endregion
 

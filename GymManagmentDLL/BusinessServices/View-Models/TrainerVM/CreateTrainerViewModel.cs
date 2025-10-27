@@ -1,25 +1,19 @@
 ﻿using GymManagmentDAL.Entities.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GymManagmentBLL.BusinessServices.View_Models.TrainerVM
+namespace GymManagmentBLL.BusinessServices.View_Models
 {
     public class CreateTrainerViewModel
     {
         [Required(ErrorMessage = "Name is required")]
-        [StringLength(50,MinimumLength =2, ErrorMessage ="Name must be between 2 and 50 characters")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 50 characters")]
         [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Name can only contain letters and spaces")]
-        public string Name { get; set; }= null!;
+        public string Name { get; set; } = null!;
 
         [Required(ErrorMessage = "Email is required")]
         [EmailAddress(ErrorMessage = "Invalid email format")]
         [DataType(DataType.EmailAddress)]
         [StringLength(100, MinimumLength = 5, ErrorMessage = "Email must be between 5 and 100 characters")]
-        public string Email { get; set; }= null!;
+        public string Email { get; set; } = null!;
 
         [Required(ErrorMessage = "Phone number is required")]
         [Phone(ErrorMessage = "Invalid phone number format")]
@@ -34,7 +28,7 @@ namespace GymManagmentBLL.BusinessServices.View_Models.TrainerVM
         public Gender Gender { get; set; }
 
         [Required(ErrorMessage = "Building Number is Required")]
-        [Range(1,9000, ErrorMessage = "Building Number must be greater than 0.")]
+        [Range(1, 9000, ErrorMessage = "Building Number must be greater than 0.")]
         public int BuildingNumber { get; set; }
 
         [Required(ErrorMessage = "Street is Required")]
@@ -50,7 +44,7 @@ namespace GymManagmentBLL.BusinessServices.View_Models.TrainerVM
         [Required(ErrorMessage = "Specialities is required")]
         [DataType(DataType.Text)]
         public Specialties Specialities { get; set; }
-                
-                
+
+
     }
 }

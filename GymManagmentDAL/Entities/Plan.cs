@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GymManagmentDAL.Entities
+﻿namespace GymManagmentDAL.Entities
 {
-    public class Plan: BaseEntity
+    public class Plan : BaseEntity
     {
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
         public int DurationDays { get; set; }
-        public bool IsActive { get; set; } 
+        public bool IsActive { get; set; }
 
         #region Relationships
         #region Plan has Membership

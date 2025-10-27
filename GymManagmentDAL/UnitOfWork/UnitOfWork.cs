@@ -2,11 +2,6 @@
 using GymManagmentDAL.Entities;
 using GymManagmentDAL.Repositories.Implementations;
 using GymManagmentDAL.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GymManagmentDAL.UnitOfWork
 {
@@ -16,18 +11,19 @@ namespace GymManagmentDAL.UnitOfWork
         private readonly GymDbContext _dbContext;
 
 
-        public UnitOfWork(GymDbContext dbContixt)
+        public UnitOfWork(GymDbContext dbContixt, ISessionRepository sessionRepository)
         {
             _dbContext = dbContixt;
+            SessionRepository = sessionRepository;
         }
 
-
+        public ISessionRepository SessionRepository { get; }
 
         public IGenericRepository<TEntity> GetRepository<TEntity>() where TEntity : BaseEntity, new()
         {
             var entityType = typeof(TEntity);
 
-            if (_repositories.TryGetValue(entityType,out var repository))
+            if (_repositories.TryGetValue(entityType, out var repository))
                 return (IGenericRepository<TEntity>)repository;
 
             var newRepository = new GenericRepository<TEntity>(_dbContext);
@@ -36,7 +32,7 @@ namespace GymManagmentDAL.UnitOfWork
 
             return newRepository;
 
-            
+
 
         }
 

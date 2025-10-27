@@ -1,14 +1,4 @@
-﻿using GymManagmentBLL.BusinessServices.Interfaces;
-using GymManagmentBLL.BusinessServices.View_Models.TrainerVM;
-using GymManagmentDAL.Entities;
-using GymManagmentDAL.UnitOfWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GymManagmentBLL.BusinessServices.Implememtation
+﻿namespace GymManagmentBLL.BusinessServices.Implememtation
 {
     internal class TrainerServices : ITrainerServices
     {
@@ -128,11 +118,11 @@ namespace GymManagmentBLL.BusinessServices.Implememtation
         {
             var trainerRepository = _unitOfWork.GetRepository<Trainer>();
 
-            var EmailExistForAnotherOldTrainer =trainerRepository
-                .GetAll(X=> X.Email == trainerToUpdate.Email && X.Id != id)
+            var EmailExistForAnotherOldTrainer = trainerRepository
+                .GetAll(X => X.Email == trainerToUpdate.Email && X.Id != id)
                 .Any();
 
-            var PhoneExistForAnotherOldTrainer =trainerRepository
+            var PhoneExistForAnotherOldTrainer = trainerRepository
                 .GetAll(X => X.Email == trainerToUpdate.Email && X.Id != id)
                 .Any();
 
@@ -142,14 +132,14 @@ namespace GymManagmentBLL.BusinessServices.Implememtation
             var trainer = trainerRepository.GetById(id);
 
             if (trainer is null) return false;
-            trainer.Email=trainerToUpdate.Email;
-            trainer.Phone=trainerToUpdate.Phone;
+            trainer.Email = trainerToUpdate.Email;
+            trainer.Phone = trainerToUpdate.Phone;
             trainer.Address.BuildingNumber = trainerToUpdate.BuildingNumber;
-            trainer.Address.Street=trainerToUpdate.Street;
+            trainer.Address.Street = trainerToUpdate.Street;
             trainer.Address.City = trainerToUpdate.City;
-            trainer.Specialities=trainerToUpdate.Specialities;
+            trainer.Specialities = trainerToUpdate.Specialities;
 
-            trainer.UpdatedAt=DateTime.Now;
+            trainer.UpdatedAt = DateTime.Now;
 
             try
             {
@@ -178,9 +168,9 @@ namespace GymManagmentBLL.BusinessServices.Implememtation
         {
             return _unitOfWork.GetRepository<Session>()
                 .GetAll(S => S.TrainerId == trainerId && S.StartDate > DateTime.Now)
-                .Any(); 
+                .Any();
 
-        } 
+        }
         #endregion
 
     }

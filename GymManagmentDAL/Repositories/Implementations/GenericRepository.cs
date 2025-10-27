@@ -1,17 +1,11 @@
 ﻿using GymManagmentDAL.Data.Context;
 using GymManagmentDAL.Entities;
 using GymManagmentDAL.Repositories.Interfaces;
-using GymManagmentDAL.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GymManagmentDAL.Repositories.Implementations
 {
-    internal class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity, new()
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity, new()
     {
         private readonly GymDbContext _dbContext;
         private GymDbContext dbContixt;
@@ -46,7 +40,7 @@ namespace GymManagmentDAL.Repositories.Implementations
 
         //public IEnumerable<TEntity> GetAll()=> _dbContext.Set<TEntity>().ToList();
 
-        public TEntity? GetById(int id)=> _dbContext.Set<TEntity>().Find(id);
+        public TEntity? GetById(int id) => _dbContext.Set<TEntity>().Find(id);
 
 
         public void Update(TEntity entity)
