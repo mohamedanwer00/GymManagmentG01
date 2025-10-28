@@ -11,5 +11,7 @@
         bool UpdateTrainer(int id, TrainerToUpdateViewModel trainerToUpdate);
         bool DeleteTrainer(int trainerId);
 
+
+
     }
 }
