@@ -2,7 +2,7 @@
 
 namespace GymManagmentBLL.BusinessServices.View_Models
 {
-    internal class MemberToUpdateViewModel : CreateMemberViewModel
+    public class MemberToUpdateViewModel : CreateMemberViewModel
     {
         public string Name { get; set; } = null!;
         public string? Photo { get; set; }

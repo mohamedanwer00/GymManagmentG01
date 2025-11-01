@@ -1,6 +1,6 @@
 ﻿namespace GymManagmentBLL.BusinessServices.View_Models
 {
-    internal class HealthRecordViewModel
+    public class HealthRecordViewModel
     {
         [Required(ErrorMessage = "Height is required.")]
         [Range(1, 300, ErrorMessage = "Height must be between 1 and 300 cm.")]

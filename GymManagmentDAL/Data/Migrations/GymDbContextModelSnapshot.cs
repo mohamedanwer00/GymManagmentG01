@@ -239,7 +239,7 @@ namespace GymManagmentDAL.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Discription")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -336,7 +336,7 @@ namespace GymManagmentDAL.Data.Migrations
 
             modelBuilder.Entity("GymManagmentDAL.Entities.Member", b =>
                 {
-                    b.OwnsOne("GymManagmentDAL.Entities.Adress", "Address", b1 =>
+                    b.OwnsOne("GymManagmentDAL.Entities.Address", "Address", b1 =>
                         {
                             b1.Property<int>("MemberId")
                                 .HasColumnType("int");
@@ -423,7 +423,7 @@ namespace GymManagmentDAL.Data.Migrations
 
             modelBuilder.Entity("GymManagmentDAL.Entities.Trainer", b =>
                 {
-                    b.OwnsOne("GymManagmentDAL.Entities.Adress", "Address", b1 =>
+                    b.OwnsOne("GymManagmentDAL.Entities.Address", "Address", b1 =>
                         {
                             b1.Property<int>("TrainerId")
                                 .HasColumnType("int");

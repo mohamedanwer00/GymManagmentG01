@@ -2,7 +2,7 @@
 
 namespace GymManagmentBLL.BusinessServices.Implememtation
 {
-    internal class MemberServices : IMemberServices
+    public class MemberServices : IMemberServices
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;

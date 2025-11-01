@@ -5,7 +5,7 @@ namespace GymManagmentDAL.Entities
     public class Trainer : GymUser
     {
         //HireDate==CeartedAt
-        public Specialties Specialities { get; set; }
+        public Specialties Specialties { get; set; }
 
         #region Relationships
         #region Trainer-Sessions

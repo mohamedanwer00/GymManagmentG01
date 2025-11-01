@@ -2,7 +2,7 @@
 
 namespace GymManagmentBLL.BusinessServices.View_Models
 {
-    internal class CreateMemberViewModel
+    public class CreateMemberViewModel
     {
         [Required(ErrorMessage = "Name is Required")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Name Must be between 2 And 50 .")]
