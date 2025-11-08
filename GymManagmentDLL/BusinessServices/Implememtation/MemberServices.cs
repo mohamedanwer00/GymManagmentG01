@@ -51,6 +51,8 @@ namespace GymManagmentBLL.BusinessServices.Implememtation
 
             var member = _mapper.Map<CreateMemberViewModel, Member>(createMember);
 
+            member.HealthRecord = _mapper.Map<HealthRecordViewModel, HealthRecord>(createMember.HealthRecordViewModel);
+
             _unitOfWork.GetRepository<Member>().Add(member);
             return _unitOfWork.SaveChanges() > 0;
 
@@ -225,8 +227,14 @@ namespace GymManagmentBLL.BusinessServices.Implememtation
             {
 
                 var memberRepository = _unitOfWork.GetRepository<Member>();
-                if (IsEmailExist(memberToUpdate.Email) || IsPhoneExist(memberToUpdate.Phone))
-                    return false;
+                //if (IsEmailExist(memberToUpdate.Email) || IsPhoneExist(memberToUpdate.Phone))
+                //    return false;
+                var emailExists = _unitOfWork.GetRepository<Member>()
+                    .GetAll(X => X.Email == memberToUpdate.Email && X.Id != memberId)
+                    .Any();
+                var phoneExists = _unitOfWork.GetRepository<Member>()
+                    .GetAll(X => X.Phone == memberToUpdate.Phone && X.Id != memberId)
+                    .Any();
                 var member = memberRepository.GetById(memberId);
                 if (member is null)
                     return false;

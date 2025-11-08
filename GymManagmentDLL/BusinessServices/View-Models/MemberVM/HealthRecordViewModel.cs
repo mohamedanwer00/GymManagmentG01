@@ -11,7 +11,7 @@
 
         [Required(ErrorMessage = "blood is required.")]
         [StringLength(3, ErrorMessage = "Blood Conditions cannot exceed 3 characters.")]
-        public string BloodTybe { get; set; } = null!;
+        public string BloodType { get; set; } = null!;
         public string? Note { get; set; }
     }
 }

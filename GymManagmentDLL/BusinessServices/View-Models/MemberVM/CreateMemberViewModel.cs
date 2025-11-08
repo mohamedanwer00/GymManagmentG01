@@ -10,7 +10,6 @@ namespace GymManagmentBLL.BusinessServices.View_Models
         public string Name { get; set; } = null!;
 
         [Required(ErrorMessage = "Email is Required")]
-
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         [DataType(DataType.EmailAddress)]//hint for the view
         [StringLength(100, MinimumLength = 5, ErrorMessage = "Email must be between 5 And 100.")]
@@ -18,7 +17,7 @@ namespace GymManagmentBLL.BusinessServices.View_Models
 
         [Required(ErrorMessage = "Phone is Required")]
         [Phone(ErrorMessage = "Invalid Phone Number")]
-        [RegularExpression(@"^(010|011|015|012)\d{8}$")]
+        [RegularExpression(@"^(010|011|015|012)\d{8}$",ErrorMessage ="Must Be valid Egyption Phone Number")]
         public string Phone { get; set; } = null!;
 
         [Required(ErrorMessage = "Date Of Barth is Required")]
@@ -48,7 +47,7 @@ namespace GymManagmentBLL.BusinessServices.View_Models
         public string City { get; set; } = null!;
 
         [Required(ErrorMessage = "Health Record is Required")]
-        public HealthRecordViewModel HealthRecord { get; set; } = null!;
+        public HealthRecordViewModel HealthRecordViewModel { get; set; } = null!;
 
 
     }

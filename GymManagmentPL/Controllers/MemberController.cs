@@ -1,4 +1,5 @@
 ﻿using GymManagmentBLL.BusinessServices.Interfaces;
+using GymManagmentBLL.BusinessServices.View_Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymManagmentPL.Controllers
@@ -20,9 +21,9 @@ namespace GymManagmentPL.Controllers
 
         public ActionResult MemberDetails(int id)
         {
-            if (id<=0)
+            if (id <= 0)
                 return RedirectToAction(nameof(Index));
-            var member=_memberServices.GetMemberDetails(id);
+            var member = _memberServices.GetMemberDetails(id);
             if (member == null)
                 return RedirectToAction(nameof(Index));
             return View(member);
@@ -33,11 +34,79 @@ namespace GymManagmentPL.Controllers
             if (id <= 0)
                 return RedirectToAction(nameof(Index));
             var healthRecordData = _memberServices.GetMemberHealthRecord(id);
-            if(healthRecordData == null)
+            if (healthRecordData == null)
                 return RedirectToAction(nameof(Index));
             return View(healthRecordData);
         }
 
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult CreateMember(CreateMemberViewModel createMember)
+        {
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("DataInvalid", "Please correct the errors and try again.");
+                return View(nameof(Create), createMember);
+            }
+
+            bool result=_memberServices.CreateMember(createMember);
+            if (result)
+            {
+                TempData["SuccessMessage"] = "Member created successfully.";
+            }
+
+            else
+            {
+                TempData["ErrorMessage"] = "An error occurred while creating the member. Please try again.";
+            }
+            return RedirectToAction(nameof(Index));
+
+
+        }
+
+
+        //Get
+        public ActionResult MemberEdit(int id)
+        {
+            if (id <= 0)
+            {
+                TempData ["ErrorMessage"] = "Invalid Member Id.";
+                return RedirectToAction(nameof(Index));
+            }
+            var member = _memberServices.GetMemberDetailsToUpdate(id);
+
+            if (member == null)
+            {
+                TempData["ErrorMessage"] = "Member not found.";
+                return RedirectToAction(nameof(Index));
+            }
+            return View(member);
+        }
+        [HttpPost]
+        public ActionResult MemberEdit([FromRoute]int id,MemberToUpdateViewModel UpdatedMember)
+        {
+
+            if(!ModelState.IsValid)
+            {
+                return View(UpdatedMember);
+            }
+            var result=_memberServices.UpdateMember(id, UpdatedMember);
+            if(result)
+            {
+                TempData["SuccessMessage"] = "Member updated successfully.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "An error occurred while updating the member. Please try again.";
+            }
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }

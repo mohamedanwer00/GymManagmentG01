@@ -40,6 +40,7 @@ namespace GymManagmentBLL.Mapping
 
 
             CreateMap<HealthRecordViewModel, HealthRecord>()
+
                 .ReverseMap();
 
 
