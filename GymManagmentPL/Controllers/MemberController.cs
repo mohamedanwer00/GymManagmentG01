@@ -127,7 +127,7 @@ namespace GymManagmentPL.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.MemberId = id;
-            return View();
+            return View("Delate");
         }
 
         [HttpPost]
