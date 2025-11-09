@@ -37,6 +37,7 @@ namespace GymManagmentPL
             builder.Services.AddAutoMapper(X => X.AddProfile(new MappingProfile()));
 
             builder.Services.AddScoped<IMemberServices, MemberServices>();
+            builder.Services.AddScoped<IPlanServices, PlanServices>();
 
             #endregion
 

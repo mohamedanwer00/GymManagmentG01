@@ -255,6 +255,8 @@ namespace GymManagmentBLL.BusinessServices.Implememtation
 
                 memberRepository.Update(member);
                 return _unitOfWork.SaveChanges() > 0;
+                //var result = _unitOfWork.SaveChanges() > 0;
+                //return result;
             }
             catch (Exception)
             {

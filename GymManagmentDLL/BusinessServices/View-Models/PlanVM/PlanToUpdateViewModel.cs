@@ -1,6 +1,6 @@
 ﻿namespace GymManagmentBLL.BusinessServices.View_Models
 {
-    internal class PlanToUpdateViewModel
+    public class PlanToUpdateViewModel
     {
         public string Name { get; set; } = null!;
 

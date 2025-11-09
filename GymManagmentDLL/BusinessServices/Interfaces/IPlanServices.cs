@@ -1,7 +1,7 @@
 ﻿
 namespace GymManagmentBLL.BusinessServices.Interfaces
 {
-    internal interface IPlanServices
+    public interface IPlanServices
     {
         IEnumerable<PlanViewModel> GetAllPlans();
         PlanViewModel? GetPlanDetails(int PlanId);

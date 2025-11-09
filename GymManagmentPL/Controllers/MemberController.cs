@@ -72,11 +72,12 @@ namespace GymManagmentPL.Controllers
 
 
         //Get
+        #region member edit
         public ActionResult MemberEdit(int id)
         {
             if (id <= 0)
             {
-                TempData ["ErrorMessage"] = "Invalid Member Id.";
+                TempData["ErrorMessage"] = "Invalid Member Id.";
                 return RedirectToAction(nameof(Index));
             }
             var member = _memberServices.GetMemberDetailsToUpdate(id);
@@ -89,15 +90,15 @@ namespace GymManagmentPL.Controllers
             return View(member);
         }
         [HttpPost]
-        public ActionResult MemberEdit([FromRoute]int id,MemberToUpdateViewModel UpdatedMember)
+        public ActionResult MemberEdit([FromRoute] int id, MemberToUpdateViewModel UpdatedMember)
         {
 
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(UpdatedMember);
             }
-            var result=_memberServices.UpdateMember(id, UpdatedMember);
-            if(result)
+            var result = _memberServices.UpdateMember(id, UpdatedMember);
+            if (result)
             {
                 TempData["SuccessMessage"] = "Member updated successfully.";
             }
@@ -107,6 +108,44 @@ namespace GymManagmentPL.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+        #endregion
+
+
+        #region Delete Member
+        public ActionResult Delete(int id)
+        {
+            if (id <= 0)
+            {
+                TempData["ErrorMessage"] = "Invalid Member Id.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            var member = _memberServices.GetMemberDetails(id);
+            if (member == null)
+            {
+                TempData["ErrorMessage"] = "Member not found.";
+                return RedirectToAction(nameof(Index));
+            }
+            ViewBag.MemberId = id;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DelateConfirmed([FromForm]int id)
+        {
+            var result = _memberServices.RemoveMember(id);
+            if (result)
+            {
+                TempData["SuccessMessage"] = "Member deleted successfully.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "An error occurred while deleting the member. Please try again.";
+            }
+            return RedirectToAction(nameof(Index));
+
+        }
+        #endregion
 
     }
 }
