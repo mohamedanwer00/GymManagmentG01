@@ -1,6 +1,6 @@
 ﻿namespace GymManagmentBLL.BusinessServices.View_Models
 {
-    internal class SessionViewModel
+    public class SessionViewModel
     {
         public int Id { get; set; }
         public string CategoryName { get; set; } = null!;

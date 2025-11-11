@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using GymManagementSystemBLL.View_Models.SessionVm;
+using GymManagmentBLL.BusinessServices.View_Models.SessionVM;
 
 namespace GymManagmentBLL.BusinessServices.Implememtation
 {
-    internal class SessionServices : ISessionServices
+    public class SessionServices : ISessionServices
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -121,7 +122,7 @@ namespace GymManagmentBLL.BusinessServices.Implememtation
 
         private bool IsDateTimeValid(DateTime startDate, DateTime endDate)
         {
-            return startDate < endDate;
+            return startDate < endDate && DateTime.Now < startDate;
         }
 
         private bool IsSessionAvailableForUpdate(Session session)
@@ -224,6 +225,19 @@ namespace GymManagmentBLL.BusinessServices.Implememtation
 
                 return false;
             }
+        }
+
+        public IEnumerable<TrainerSelectViewModel> GetTrainersForDropdown()
+        {
+            var trainers = _unitOfWork.GetRepository<Trainer>().GetAll();
+            return _mapper.Map<IEnumerable<Trainer>, IEnumerable<TrainerSelectViewModel>>(trainers);
+        }
+
+        public IEnumerable<CategorySelectViewModel> GetCategoriesForDropdown()
+        {
+            var categories = _unitOfWork.GetRepository<Category>().GetAll();
+
+            return _mapper.Map<IEnumerable<Category>, IEnumerable<CategorySelectViewModel>>(categories);
         }
     }
 }

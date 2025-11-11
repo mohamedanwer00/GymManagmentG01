@@ -1,8 +1,9 @@
 ﻿using GymManagementSystemBLL.View_Models.SessionVm;
+using GymManagmentBLL.BusinessServices.View_Models.SessionVM;
 
 namespace GymManagmentBLL.BusinessServices.Interfaces
 {
-    internal interface ISessionServices
+    public interface ISessionServices
     {
         IEnumerable<SessionViewModel> GetAllSessions();
         SessionViewModel? GetSessionDetails (int sessionId); 
@@ -12,5 +13,8 @@ namespace GymManagmentBLL.BusinessServices.Interfaces
         bool UpdateSession(int sessionId,UpdateSessionViewModel updateSession);
 
         bool DeleteSession(int sessionId);
+
+        IEnumerable<TrainerSelectViewModel> GetTrainersForDropdown();
+        IEnumerable<CategorySelectViewModel> GetCategoriesForDropdown();
     }
 }

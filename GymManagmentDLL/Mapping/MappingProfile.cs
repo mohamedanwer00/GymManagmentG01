@@ -1,5 +1,7 @@
 ﻿
 
+using GymManagmentBLL.BusinessServices.View_Models.SessionVM;
+
 namespace GymManagmentBLL.Mapping
 {
     public class MappingProfile : Profile
@@ -24,6 +26,10 @@ namespace GymManagmentBLL.Mapping
             CreateMap<CreateSessionViewModel, Session>();
 
             CreateMap<Session, UpdateSessionViewModel>().ReverseMap();//يعنى العكس برضو اقدر احول من ده الى ده ومن ده الى ده
+
+            CreateMap<Trainer, TrainerSelectViewModel>();
+            CreateMap<Category, CategorySelectViewModel>()
+                .ForMember(dest => dest.Name, options => options.MapFrom(src => src.CategoryName));
 
         }
 
