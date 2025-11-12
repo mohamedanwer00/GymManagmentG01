@@ -99,9 +99,11 @@ namespace GymManagmentBLL.Mapping
                   BuildingNumber = src.BuildingNumber,
                   Street = src.Street,
                   City = src.City
-              }));
+              })
+              );
 
             CreateMap<Trainer, TrainerViewModel>()
+                .ForMember(dest => dest.Specialities, options => options.MapFrom(src => src.Specialties.ToString()))
                 .ForMember(dest => dest.DateOfBirth, options => options.MapFrom(src => src.DateOfBirth.ToShortDateString()))
                 .ForMember(dest => dest.Address, options => options.MapFrom(src => $"{src.Address.BuildingNumber}-{src.Address.Street}-{src.Address.City}"));
 
@@ -113,6 +115,8 @@ namespace GymManagmentBLL.Mapping
 
 
             CreateMap<TrainerToUpdateViewModel, Trainer>()
+
+                //.ForMember(dest => dest.Specialties, options => options.MapFrom(src => src.Specialities.ToString()))
                 .ForMember(dest => dest.Name, options => options.Ignore())
                 .AfterMap((src, dest) =>
                 {

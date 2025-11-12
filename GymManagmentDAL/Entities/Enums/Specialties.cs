@@ -4,8 +4,8 @@
     {
 
         GeneralFitness = 1,
-        Yoga,
-        Boxing,
-        Crossfit,
+        Yoga=2,
+        Boxing=3,
+        Crossfit=4,
     }
 }
