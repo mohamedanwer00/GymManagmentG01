@@ -1,3 +1,4 @@
+using GymManagementBLL.BusinessServices.Implementation;
 using GymManagmentBLL.BusinessServices.Implememtation;
 using GymManagmentBLL.BusinessServices.Interfaces;
 using GymManagmentBLL.Mapping;
@@ -7,6 +8,7 @@ using GymManagmentDAL.Repositories.Implementations;
 using GymManagmentDAL.Repositories.Interfaces;
 using GymManagmentDAL.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GymManagmentPL
 {
@@ -30,6 +32,7 @@ namespace GymManagmentPL
             builder.Services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             //builder.Services.AddScoped(typeof(IPlanRepository), typeof(PlanReposatory));
             builder.Services.AddScoped(typeof(ISessionRepository), typeof(SessionRepository));
+            builder.Services.AddScoped(typeof(IMembershipRepository), typeof(MembershipRepository));
 
             builder.Services.AddScoped<IAnalyticsService, AnalyticsService>();
 
@@ -40,6 +43,8 @@ namespace GymManagmentPL
             builder.Services.AddScoped<IPlanServices, PlanServices>();
             builder.Services.AddScoped<ISessionServices, SessionServices>();
             builder.Services.AddScoped<ITrainerServices, TrainerServices>();
+            builder.Services.AddScoped<IMembershipService, MembershipService>();
+
 
             #endregion
 
