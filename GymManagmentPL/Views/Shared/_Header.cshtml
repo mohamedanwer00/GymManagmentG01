@@ -14,33 +14,51 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto mb-2 mb-lg-0 mt-3 mt-lg-0">
+
                     <li class="nav-item">
-                    <li class="nav-item">
-                        <a class="nav-link active px-3 py-2 mx-2 fw-bolder fs-5" aria-current="page"
+                        <a class="nav-link px-3 py-2 mx-2 fw-bolder fs-5 @(ViewContext.RouteData.Values["controller"]!.ToString() == "Home" ? "active" : "")"
                            asp-controller="Home" asp-action="Index">Home</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link  px-3 py-2 mx-2 fw-bolder fs-5" aria-current="page" asp-controller="Member" asp-action="Index">Members</a>
+                        <a class="nav-link px-3 py-2 mx-2 fw-bolder fs-5 @(ViewContext.RouteData.Values["controller"]!.ToString() == "Member" ? "active" : "")"
+                           asp-controller="Member" asp-action="Index">Members</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link  px-3 py-2 mx-2 fw-bolder fs-5" aria-current="page" asp-controller="Trainer" asp-action="Index">Trainers</a>
+                        <a class="nav-link px-3 py-2 mx-2 fw-bolder fs-5 @(ViewContext.RouteData.Values["controller"]!.ToString() == "Trainer" ? "active" : "")"
+                           asp-controller="Trainer" asp-action="Index">Trainers</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link  px-3 py-2 mx-2 fw-bolder fs-5" aria-current="page" asp-controller="Session" asp-action="Index">Sessions</a>
+                        <a class="nav-link px-3 py-2 mx-2 fw-bolder fs-5 @(ViewContext.RouteData.Values["controller"]!.ToString() == "Session" ? "active" : "")"
+                           asp-controller="Session" asp-action="Index">Sessions</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link  px-3 py-2 mx-2 fw-bolder fs-5" aria-current="page" asp-controller="Plan" asp-action="Index">Plans</a>
+                        <a class="nav-link px-3 py-2 mx-2 fw-bolder fs-5 @(ViewContext.RouteData.Values["controller"]!.ToString() == "Plan" ? "active" : "")"
+                           asp-controller="Plan" asp-action="Index">Plans</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link  px-3 py-2 mx-2 fw-bolder fs-5" aria-current="page"
+                        <a class="nav-link px-3 py-2 mx-2 fw-bolder fs-5 @(ViewContext.RouteData.Values["controller"]!.ToString() == "Membership" ? "active" : "")"
                            asp-controller="Membership" asp-action="Index">Memberships</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link  px-3 py-2 mx-2 fw-bolder fs-5" aria-current="page" asp-controller="Sessions Schedule" asp-action="Index">
-                            Sessions
-                            Schedule
+                        <a class="nav-link px-3 py-2 mx-2 fw-bolder fs-5 @(ViewContext.RouteData.Values["controller"]!.ToString() == "Booking" ? "active" : "")"
+                           asp-controller="Booking" asp-action="Index">
+                            Sessions Schedule
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link px-3 py-2 mx-2 fw-bolder fs-5 @(ViewContext.RouteData.Values["controller"]!.ToString() == "LogOut" ? "active" : "")"
+                           asp-controller="LogOut" asp-action="Index">
+                            Log Out
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </div>

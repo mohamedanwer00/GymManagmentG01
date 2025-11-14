@@ -7,7 +7,7 @@ namespace GymManagmentDAL.UnitOfWork
     {
         public ISessionRepository SessionRepository { get; }
         public IMembershipRepository MembershipRepository { get; }
-        //IBookingRepository BookingRepository { get; }
+        public IBookingRepository BookingRepository { get; }
 
         IGenericRepository<TEntity> GetRepository<TEntity>()
             where TEntity : BaseEntity, new();

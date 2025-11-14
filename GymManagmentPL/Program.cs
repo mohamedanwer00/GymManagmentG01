@@ -33,6 +33,7 @@ namespace GymManagmentPL
             //builder.Services.AddScoped(typeof(IPlanRepository), typeof(PlanReposatory));
             builder.Services.AddScoped(typeof(ISessionRepository), typeof(SessionRepository));
             builder.Services.AddScoped(typeof(IMembershipRepository), typeof(MembershipRepository));
+            builder.Services.AddScoped(typeof(IBookingRepository), typeof(BookingRepository));
 
             builder.Services.AddScoped<IAnalyticsService, AnalyticsService>();
 
@@ -44,6 +45,10 @@ namespace GymManagmentPL
             builder.Services.AddScoped<ISessionServices, SessionServices>();
             builder.Services.AddScoped<ITrainerServices, TrainerServices>();
             builder.Services.AddScoped<IMembershipService, MembershipService>();
+            builder.Services.AddScoped<IBookingService, BookingService>();
+            //builder.Services.AddScoped<IAttachementService, AttachementService>();
+
+
 
 
             #endregion
