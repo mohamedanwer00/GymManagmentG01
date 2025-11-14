@@ -98,6 +98,7 @@ namespace GymManagmentBLL.Mapping
         private void MapTrainer()
         {
             CreateMap<CreateTrainerViewModel, Trainer>()
+
               .ForMember(dest => dest.Address, options => options.MapFrom(src => new Address
               {
                   BuildingNumber = src.BuildingNumber,

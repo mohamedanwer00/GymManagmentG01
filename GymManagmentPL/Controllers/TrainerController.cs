@@ -49,6 +49,7 @@ namespace GymManagementPL.Controllers
                 return View("Create", createTrainer);
             }
             var isCreated = _trainerService.CreateTrainer(createTrainer);
+            
             if (!isCreated)
             {
                 TempData["ErrorMessage"] = "Failed to create trainer. Please try again.";

@@ -37,6 +37,7 @@ namespace GymManagmentBLL.BusinessServices.Implememtation
             #endregion
 
             var trainer=_mapper.Map<CreateTrainerViewModel,Trainer>(createTrainer);
+            trainer.Specialties= createTrainer.Specialities;
 
             try
             {
